@@ -1,0 +1,45 @@
+# -----------------------------
+# 1. FILTRO DE PALAVRAS RESERVADAS
+# -----------------------------
+
+# Conjunto de palavras reservadas da linguagem
+RESERVADAS = {
+    "if", "else", "while", "for", "return",
+    "int", "System", "out", "print",
+    "public", "class"
+}
+
+# Texto de entrada (código fonte)
+codigo = """
+public class StarRectangle {
+public void printRectangle(int n) {
+for (int i = 0; i < n; i++) {
+for (int j = 0; j < n; j++) {
+System.out.print(" * ");
+}
+System.out.println();
+}
+}
+}
+"""
+
+# Importa biblioteca para separar palavras
+import re
+
+# Extrai apenas palavras (remove símbolos e pontuação)
+palavras = re.findall(r'[A-Za-z_]+', codigo)
+
+# Converte para conjunto (remove repetições)
+conjunto_codigo = set(palavras)
+
+# Interseção -> palavras reservadas presentes
+reservadas_encontradas = conjunto_codigo & RESERVADAS
+
+# Diferença -> possíveis identificadores
+identificadores = conjunto_codigo - RESERVADAS
+
+print("Palavras reservadas encontradas:")
+print(reservadas_encontradas)
+
+print("\nPossíveis identificadores:")
+print(identificadores)
