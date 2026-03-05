@@ -1,0 +1,18 @@
+# -----------------------------
+# 2. SISTEMA DE RECOMENDAÇÃO
+# -----------------------------
+
+Usuario_A = {"Python", "Jogos", "Música", "IA"}
+Usuario_B = {"Java", "IA", "Música", "Caminhada"}
+
+# 1. Interesses em comum
+interesses_comuns = Usuario_A & Usuario_B
+
+# 2. Sugestões para A (o que B gosta e A não conhece)
+sugestoes_para_A = Usuario_B - Usuario_A
+
+print("Interesses em comum:")
+print(interesses_comuns)
+
+print("\nSugestões para o Usuário A:")
+print(sugestoes_para_A)
