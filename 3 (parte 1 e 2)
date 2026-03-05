@@ -1,0 +1,27 @@
+# -----------------------------
+# 3. CONTROLE DE ACESSO
+# -----------------------------
+
+RH = {"ver_salario", "editar_perfil"}
+TI = {"acesso_servidor", "editar_perfil"}
+
+# Funcionário com dois cargos → união dos conjuntos
+permissoes_totais = RH | TI
+
+print("Permissões totais do funcionário:")
+print(permissoes_totais)
+# Permissões necessárias para abrir arquivo confidencial
+arquivo_confidencial = {
+    "ver_salario",
+    "editar_perfil",
+    "acesso_servidor"
+}
+
+# Permissões do usuário
+usuario = {"ver_salario", "editar_perfil"}
+
+# Verifica se é subconjunto
+if usuario.issubset(arquivo_confidencial):
+    print("\nUsuário possui permissões válidas.")
+else:
+    print("\nUsuário NÃO possui permissões suficientes.")
